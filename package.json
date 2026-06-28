@@ -1,0 +1,27 @@
+{
+  "name": "scrub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal digital-footprint eraser — find where your own data is exposed on data brokers and remove it via their opt-out flows, on a schedule.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "sweep": "tsx src/index.ts",
+    "dry-run": "tsx src/index.ts --dry-run",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "browsers": "playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  }
+}

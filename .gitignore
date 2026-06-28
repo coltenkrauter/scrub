@@ -1,15 +1,27 @@
-# OS
-.DS_Store
+# Dependencies
+node_modules/
+
+# Build
+dist/
+
+# Runtime PII — NEVER commit these
+.claude/footprint/profile.json
+.claude/footprint/state.json
+.claude/footprint/report.md
+.claude/footprint/shots/
 
 # Logs
 *.log
 
-# Dependencies
-node_modules/
+# Local scheduler state (host-specific, not source)
+.claude/scheduled_tasks.json
 
 # Environment
 .env
 .env.local
+
+# OS
+.DS_Store
 
 # Editor
 .vscode/
