@@ -1,0 +1,11 @@
+{
+  "fullName": "Jane Q. Public",
+  "aliases": ["Jane Public"],
+  "email": "you@example.com",
+  "phone": "+1 555 555 0123",
+  "birthYear": 1990,
+  "currentCity": "Austin",
+  "currentState": "TX",
+  "pastLocations": ["Denver, CO"],
+  "relatives": ["John Public"]
+}

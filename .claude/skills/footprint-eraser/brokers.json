@@ -1,0 +1,128 @@
+[
+  {
+    "id": "spokeo",
+    "name": "Spokeo",
+    "method": "url",
+    "searchUrl": "https://www.spokeo.com/{firstName}-{lastName}/{state}/{city}",
+    "optOutUrl": "https://www.spokeo.com/optout",
+    "notes": "Listing-specific opt-out: paste the profile URL, then confirm via email. Re-verify URL each run."
+  },
+  {
+    "id": "whitepages",
+    "name": "Whitepages",
+    "method": "url",
+    "searchUrl": "https://www.whitepages.com/name/{firstName}-{lastName}/{city}-{state}",
+    "optOutUrl": "https://www.whitepages.com/suppression-requests",
+    "notes": "Requires the listing URL and a phone callback verification. Phone step is manual."
+  },
+  {
+    "id": "beenverified",
+    "name": "BeenVerified",
+    "method": "url",
+    "searchUrl": "https://www.beenverified.com/app/optout/search?fn={firstName}&ln={lastName}&state={state}",
+    "optOutUrl": "https://www.beenverified.com/app/optout/search",
+    "notes": "Search the opt-out tool, select your record, confirm via email link."
+  },
+  {
+    "id": "intelius",
+    "name": "Intelius",
+    "method": "form",
+    "searchUrl": "https://www.intelius.com/people-search/{firstName}-{lastName}/",
+    "optOutUrl": "https://www.intelius.com/opt-out/",
+    "notes": "PeopleConnect brand. Form + email confirmation."
+  },
+  {
+    "id": "peoplefinders",
+    "name": "PeopleFinders",
+    "method": "form",
+    "searchUrl": "https://www.peoplefinders.com/people/{firstName}-{lastName}",
+    "optOutUrl": "https://www.peoplefinders.com/opt-out",
+    "notes": "Select your record on the opt-out page, then email confirm."
+  },
+  {
+    "id": "mylife",
+    "name": "MyLife",
+    "method": "email",
+    "optOutEmail": "privacy@mylife.com",
+    "searchUrl": "https://www.mylife.com/search?searchType=person&fname={firstName}&lname={lastName}",
+    "template": {
+      "subject": "Data removal / opt-out request — {fullName}",
+      "body": "Hello MyLife Privacy Team,\n\nUnder applicable privacy laws (incl. CCPA/CPRA), I request deletion and suppression of my personal information, and that you neither sell nor share it.\n\nName: {fullName}\nEmail: {email}\nCity/State: {city}, {state}\nListing: {listingUrl}\n\nPlease confirm in writing once removed.\n\nThank you,\n{fullName}"
+    },
+    "notes": "MyLife opt-out is handled by email/phone. Draft is prepared; you send it from your own mailbox."
+  },
+  {
+    "id": "radaris",
+    "name": "Radaris",
+    "method": "form",
+    "searchUrl": "https://radaris.com/p/{firstName}/{lastName}/",
+    "optOutUrl": "https://radaris.com/control/privacy",
+    "notes": "Find your profile, request control/removal, confirm via email."
+  },
+  {
+    "id": "truepeoplesearch",
+    "name": "TruePeopleSearch",
+    "method": "form",
+    "searchUrl": "https://www.truepeoplesearch.com/results?name={firstName}%20{lastName}&citystatezip={city}%2C%20{state}",
+    "optOutUrl": "https://www.truepeoplesearch.com/removal",
+    "notes": "Removal page asks for the record URL + an email confirmation (CAPTCHA likely)."
+  },
+  {
+    "id": "fastpeoplesearch",
+    "name": "FastPeopleSearch",
+    "method": "form",
+    "searchUrl": "https://www.fastpeoplesearch.com/name/{firstName}-{lastName}_{city}-{state}",
+    "optOutUrl": "https://www.fastpeoplesearch.com/removal",
+    "notes": "Paste the record URL, confirm via email link (CAPTCHA likely)."
+  },
+  {
+    "id": "instantcheckmate",
+    "name": "Instant Checkmate",
+    "method": "form",
+    "optOutUrl": "https://www.instantcheckmate.com/opt-out/",
+    "notes": "PeopleConnect brand. Search opt-out tool by name/state, email confirm."
+  },
+  {
+    "id": "truthfinder",
+    "name": "TruthFinder",
+    "method": "form",
+    "optOutUrl": "https://www.truthfinder.com/opt-out/",
+    "notes": "PeopleConnect brand. Search opt-out tool by name/state, email confirm."
+  },
+  {
+    "id": "peopleconnect",
+    "name": "PeopleConnect",
+    "method": "email",
+    "optOutEmail": "privacy@peopleconnect.us",
+    "template": {
+      "subject": "Opt-out / suppression across PeopleConnect brands — {fullName}",
+      "body": "Hello PeopleConnect Privacy Team,\n\nI request opt-out, deletion, and suppression of my personal information across all PeopleConnect brands (Intelius, Instant Checkmate, TruthFinder, US Search, etc.), and that you do not sell or share it.\n\nName: {fullName}\nEmail: {email}\nCity/State: {city}, {state}\n\nPlease confirm once processed.\n\nThank you,\n{fullName}"
+    },
+    "notes": "Umbrella request covering PeopleConnect brands. Send from your own mailbox."
+  },
+  {
+    "id": "acxiom",
+    "name": "Acxiom",
+    "method": "form",
+    "optOutUrl": "https://isapps.acxiom.com/optout/optout.aspx",
+    "notes": "Marketing data broker (not people-search) — no public listing to discover. Submit the suppression form directly."
+  },
+  {
+    "id": "oracle-data-cloud",
+    "name": "Oracle Data Cloud",
+    "method": "email",
+    "optOutEmail": "dataprivacy_us@oracle.com",
+    "template": {
+      "subject": "Data opt-out request — {fullName}",
+      "body": "Hello Oracle Data Privacy Team,\n\nI request opt-out, deletion, and suppression of my personal information from Oracle's data services, and that you do not sell or share it.\n\nName: {fullName}\nEmail: {email}\n\nPlease confirm once processed.\n\nThank you,\n{fullName}"
+    },
+    "notes": "Oracle wound down its Advertising/Data Cloud business in 2022; the old datacloudoptout.oracle.com self-service flow may be gone. Email request + re-verify the current channel each run."
+  },
+  {
+    "id": "lexisnexis",
+    "name": "LexisNexis",
+    "method": "form",
+    "optOutUrl": "https://optout.lexisnexis.com/",
+    "notes": "Risk-data broker (not people-search). Suppression form requires identity verification; expect a manual ID step."
+  }
+]
