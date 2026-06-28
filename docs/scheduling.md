@@ -9,26 +9,29 @@ truly unattended on this host.
 
 | Option | Runs | Persistence | Auto-expires? |
 | --- | --- | --- | --- |
-| **A. Claude cron** (registered) | Inside a Claude Code session, when idle | Survives restarts (`.claude/scheduled_tasks.json`), **but** only fires while a Claude REPL is running | **Yes — after 7 days.** Must be re-armed. |
+| **A. Claude cron** (registered) | Inside a Claude Code session, when idle | **Session-only** in this environment — lives in memory, dies when Claude exits | **Yes — after 7 days.** Must be re-armed. |
 | **B. launchd** (recommended for real autonomy) | The `npm run sweep` engine, no Claude needed | Fully persistent on this host across reboots/logouts | No |
 
 > **Short answer to "session-only or persistent on this host?"**
-> The Claude cron is **durable (persisted to disk)** but **not truly unattended**:
-> it only fires while a Claude session is open, and the scheduler auto-expires
-> recurring jobs after **7 days**. For a genuinely persistent, Claude-independent
-> weekly job, use **launchd (Option B)**.
+> The registered Claude cron is **session-only**: when I asked for a durable
+> (on-disk) job, this environment returned it in-memory only — it dies when the
+> Claude session exits, only fires while a Claude REPL is open and idle, and the
+> scheduler auto-expires recurring jobs after **7 days**. So it is **not**
+> persistent on this host. For a genuinely persistent, Claude-independent weekly
+> job, use **launchd (Option B)** below — that is the one that survives reboots.
 
 ## Option A — Claude cron (already registered)
 
-A durable recurring job has been registered for **Mondays at 08:23 local**
-(off the :00/:30 mark to avoid fleet-wide pile-ups). Its prompt invokes the
-`footprint-eraser` skill and asks for the advanced-vs-blocked summary.
+A recurring job (id `36517da3`) has been registered for **Mondays at 08:23
+local** (off the :00/:30 mark to avoid fleet-wide pile-ups). Its prompt invokes
+the `footprint-eraser` skill and asks for the advanced-vs-blocked summary.
 
-- It is written to `.claude/scheduled_tasks.json`, so it survives Claude
-  restarts — but it only fires **while a Claude Code session is open and idle**,
-  and the scheduler **auto-deletes recurring jobs after 7 days**.
-- To keep it going, re-arm it (ask Claude to "schedule the weekly footprint
-  sweep" again) roughly weekly, or use Option B.
+- In this environment the job came back **session-only** (in-memory): it only
+  fires **while a Claude Code session is open and idle**, it **dies when Claude
+  exits**, and the scheduler **auto-deletes recurring jobs after 7 days**.
+- So it is **not** persistent on this host. To keep it going, re-arm it (ask
+  Claude to "schedule the weekly footprint sweep" again) each session, or — for
+  real autonomy — use Option B.
 
 Manage it from a Claude session: list with the cron tooling, or ask Claude to
 delete/re-create it.
